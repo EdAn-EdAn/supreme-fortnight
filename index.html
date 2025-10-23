@@ -474,7 +474,7 @@
         .stagger-3 { transition-delay: 0.3s; }
         .stagger-4 { transition-delay: 0.4s; }
 
-        /* Responsive */
+    /* Responsive */
         @media (max-width: 768px) {
             .nav-links, .nav-cta { display: none; }
             .mobile-menu-btn { display: block; }
@@ -483,6 +483,29 @@
             .hero-content { flex-direction: column; }
             .profile-image { width: 16rem; height: 16rem; }
             .section-header h2 { font-size: 2rem; }
+
+            /* Add the new CSS here */
+            .internship-card {
+                display: flex !important;
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: stretch;
+            }
+
+            .text-content {
+                order: 1;
+            }
+
+            .image-container {
+                order: 2;
+                align-self: center;
+                max-width: 100%;
+            }
+
+            .badges-content {
+                order: 3;
+                align-self: center;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -718,8 +741,8 @@
             
             <!-- Internship Project - Full Width -->
             <div style="margin-top: 2rem;">
-                <div class="card fade-in-up stagger-4" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
-                    <div>
+                <div class="card internship-card fade-in-up stagger-4" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <div class="text-content">
                         <span class="badge" style="margin-bottom: 1rem; background: hsl(var(--secondary) / 0.2); border-color: hsl(var(--secondary));">Internship Project</span>
                         <h3 style="margin-bottom: 1rem; font-size: 1.75rem; color: hsl(var(--secondary));">Archimedes Turbine Airfoil Design</h3>
                         <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; color: hsl(var(--muted-foreground)); font-size: 0.875rem;">
@@ -730,14 +753,19 @@
                             <span style="font-weight: 500; color: hsl(var(--secondary));">Novalinks</span>
                             <span>• ML Specialist & CAD Engineer</span>
                         </div>
-                        <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">Single-handedly developed a machine learning algorithm using inverse modeling using Genetic Algorithm and Random Forest to generate optimized airfoils for Archimedes turbines under given parameters and validated using QBlade. Combined CAD engineering expertise with advanced ML techniques to create efficient turbine blade designs.</p>
-                        <ul style="list-style: none; margin-bottom: 1rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                        <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">Single-handedly developed a machine learning algorithm using inverse modeling to generate optimized airfoils for Archimedes turbines under given parameters. Combined CAD engineering expertise with advanced ML techniques to create efficient turbine blade designs.</p>
+                        <ul style="list-style: none; margin-bottom: 2rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
                             <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="color: hsl(var(--secondary));">•</span> Developed inverse modeling ML algorithm for airfoil generation</li>
                             <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="color: hsl(var(--secondary));">•</span> Optimized turbine blade designs for efficiency parameters</li>
                             <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="color: hsl(var(--secondary));">•</span> Performed CFD analysis and CAD modeling</li>
                             <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="color: hsl(var(--secondary));">•</span> Integrated machine learning with engineering design principles</li>
-                            <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="color: hsl(var(--secondary));">•</span> Airfoil outperformed the efficiency of the best existing Airfoil NACA6409 by 10%</li>
                         </ul>
+                    </div>
+                    <div class="image-container" style="grid-column: 2; position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid hsl(var(--card-border)); background: hsl(var(--surface));">
+                        <img src="airfoil.png" alt="Archimedes Turbine Airfoil Design" style="width: 100%; height: auto; display: block;">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, hsl(var(--background) / 0.8), transparent); pointer-events: none;"></div>
+                    </div>
+                    <div class="badges-content" style="grid-column: 1; margin-top: 1rem;">
                         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                             <span class="badge">Machine Learning</span>
                             <span class="badge">Python</span>
@@ -745,13 +773,7 @@
                             <span class="badge">CFD Analysis</span>
                             <span class="badge">Fusion 360</span>
                             <span class="badge">Ansys</span>
-                            <span class="badge">QBlade</span>
-                            <span class="badge">XFOIL</span>
                         </div>
-                    </div>
-                    <div style="position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid hsl(var(--card-border)); background: hsl(var(--surface));">
-                        <img src="airfoil.png" alt="Archimedes Turbine Airfoil Design" style="width: 100%; height: auto; display: block;">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, hsl(var(--background) / 0.8), transparent); pointer-events: none;"></div>
                     </div>
                 </div>
             </div>
@@ -818,9 +840,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card fade-in-up stagger-3">
-                    <h3 style="color: hsl(var(--accent)); font-size: 1.5rem; margin-bottom: 1.5rem;">Key Achievements</h3>
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card fade-in-up stagger-3" style="display: flex; flex-direction: column; height: 100%;">
+                    <h3 style="color: hsl(var(--accent)); font-size: 1.5rem; margin-bottom: 1.5rem; flex-shrink: 0;">Key Achievements</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; flex: 1; justify-content: space-around;">
                         <div style="padding: 1rem; background: hsl(var(--surface)); border: 1px solid hsl(var(--card-border)); border-radius: var(--radius);">
                             <span style="font-size: 0.75rem; color: hsl(var(--accent)); background: hsl(var(--accent) / 0.1); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">2025</span>
                             <h4 style="margin: 0.5rem 0;">Intern at Novalinks</h4>
